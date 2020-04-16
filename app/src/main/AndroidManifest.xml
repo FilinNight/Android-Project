@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lingvolern">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".View.Help"></activity>
+        <activity android:name=".View.basics.BasicsSuggestions" />
+        <activity android:name=".View.basics.TableTimes" />
+        <activity android:name=".View.basics.Prepositions" />
+        <activity android:name=".View.basics.Articles" />
+        <activity android:name=".View.basics.Pronoun" />
+        <activity android:name=".View.Basics" />
+        <activity android:name=".View.Transcript" />
+        <activity android:name=".View.Level" />
+        <activity android:name=".View.Login">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:windowSoftInputMode="adjustResize" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".View.Vocabulary" />
+        <activity
+            android:name=".View.Traning"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".View.Menu" />
+    </application>
+
+</manifest>

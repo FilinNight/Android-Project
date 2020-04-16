@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Traning">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/EditTextEntryField"
+
+            style="@style/StyleEntryField"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/ibtn_Input"
+            android:hint="_"
+            android:inputType="textNoSuggestions"
+            android:paddingLeft="15sp"
+            android:textIsSelectable="false"
+            android:textSize="24sp" />
+
+
+        <ImageButton
+            android:id="@+id/ibtn_Menu"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/arrow_menu" />
+
+        <ImageButton
+
+            android:id="@+id/ibtn_Input"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/input_word" />
+
+        <TextView
+            android:id="@+id/textEnWord"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/EditTextEntryField"
+            android:layout_alignStart="@id/EditTextEntryField"
+            android:padding="10dp"
+            android:text="@string/textTreningWord"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/txtProcentProgress"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/txtProgress"
+            android:padding="8dp"
+            android:text="@string/number_progress"
+            android:textSize="30sp" />
+
+
+        <TextView
+            android:id="@+id/txtProgress"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="-2dp"
+            android:layout_marginTop="-2dp"
+            android:padding="8dp"
+            android:text="Прогресс:"
+            android:textSize="30sp" />
+
+        <TextView
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/txtProcentProgress"
+            android:padding="8dp"
+            android:text="%"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textTranscript"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/EditTextEntryField"
+            android:layout_alignStart="@id/EditTextEntryField"
+            android:paddingLeft="8dp"
+            android:paddingTop="50dp"
+            android:text="@string/txtTranscript"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/btn_Show"
+            style="@style/StyleButtonInput"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/ibtn_Input"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="15dp"
+            android:text="Показать"
+            android:textColor="@color/colorDarkBlue"
+            android:textSize="15sp" />
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorDarkBlue">#0C123C</color>
+    <color name="colorShadeBlue_l">#98CCFD</color>
+    <color name="colorShadeBlue_2">#A2D4FF</color>
+    <color name="colorBackground">#CBDDF3</color>
+    <color name="colorBlue">#3875B1</color>
+    <color name="colorBlue2">#4C8BC9</color>
+    <color name="colorWhite">#EDEDF7</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlueBlack">#0A0E16</color>
+    <color name="colorTest">#FFFFFF</color>
+    <color name="colorEnableBlue">#666674</color>
+    <color name="colorEnableShadeBlue_l">#959BB3</color>
+    <color name="colorEnableShadeBlue_2">#9196AC</color>
+
+
+</resources>

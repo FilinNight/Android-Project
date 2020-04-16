@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Login">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/txtLingvoLern"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="60dp"
+            android:gravity="top"
+            android:text="@string/Lingvo_Lern"
+            android:textColor="@color/colorDarkBlue"
+            android:textSize="45sp" />
+
+
+        <TextView
+            android:id="@+id/txtLog"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtLingvoLern"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:gravity="top"
+            android:text="@string/authorization"
+            android:textSize="35sp" />
+
+        <TextView
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/EtxtEnterName"
+            android:layout_alignStart="@+id/EtxtEnterName"
+            android:layout_margin="5dp"
+            android:text="@string/EnterYourName"
+            android:textSize="20sp" />
+
+
+        <EditText
+            android:id="@+id/EtxtEnterName"
+            style="@style/StyleEntryField"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/ibtn_InputName"
+            android:inputType="textNoSuggestions"
+            android:paddingLeft="15sp"
+            android:textIsSelectable="false"
+            android:textSize="24sp" />
+
+        <ImageButton
+            android:id="@+id/ibtn_InputName"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/input_word" />
+
+
+        <ImageButton
+            android:id="@+id/ibtn_HelpLog"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_margin="10dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/question_icon" />
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
