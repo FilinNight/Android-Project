@@ -55,7 +55,7 @@ public class Controller implements IController
             if(word.getNew() == 1)
             {
                 word.setNew(0);
-                word.setCorrectAttempty(3);
+                word.setCorrectAttempty(4);
                 word = this.changeRating(word);
                 this.changeWord(word);
 
@@ -128,7 +128,7 @@ public class Controller implements IController
         int pracentRandom = random.nextInt(100);
         System.out.println(pracentRandom);
 
-        if(pracentRandom <= 15)
+        if(pracentRandom <= 20)
         {
             if(listWordsRating1.size() != 0)
             {
@@ -157,7 +157,7 @@ public class Controller implements IController
             }
 
         }
-        else if (pracentRandom > 15 && pracentRandom <= 50)
+        else if (pracentRandom > 20 && pracentRandom <= 60)
         {
             if (listWordsRating2.size() != 0)
             {
@@ -186,7 +186,7 @@ public class Controller implements IController
             }
 
         }
-        else if (pracentRandom > 50 && pracentRandom <= 85)
+        else if (pracentRandom > 60 && pracentRandom <= 85)
         {
             if (listWordsRating3.size() != 0)
             {
@@ -300,7 +300,7 @@ public class Controller implements IController
                 word.setRating(1);
                 return word;
             }
-            else if(difference >= -5 && difference <= -3)
+            else if(difference > -5 && difference <= -3)
             {
                 word.setRating(2);
                 return word;
@@ -330,7 +330,7 @@ public class Controller implements IController
         else
         {
             word.setNew(0);
-            word.setRating(1);
+            word.setRating(4);
             return word;
         }
     }
@@ -358,19 +358,27 @@ public class Controller implements IController
         int CountRating_4 = 0;
         int CountRating_5 = 0;
 
+        double progress_1 = 0;
+        double progress_2 = 0;
+        double progress_3 = 0;
+        double progress_4 = 0;
+        double progress_5 = 0;
+
+
+
         int ItogProgress = 0;
-        double progress = 0;
+        double allProgress = 0;
         int allSize = listWords.size();
 
-        for(Word wd : listWords)
-        {
-            System.out.println(wd.toString());
-        }
+//        for(Word wd : listWords)
+//        {
+//            System.out.println(wd.toString());
+//        }
 
 
         for(Word wd : listWords)
         {
-            if(wd.getRating() == 1)
+            if(wd.getRating() == 1 && wd.getRating() == 0)
             {
                 CountRating_1++;
             }
@@ -394,18 +402,21 @@ public class Controller implements IController
         }
 
         double procentRating_1 = 0;
-        double procentRating_2 = 25 / allSize ;
-        double procentRating_3 = 50 / allSize ;
-        double procentRating_4 = 75 / allSize ;
-        double procentRating_5 = 100 / allSize ;
+        double procentRating_2 = 25f / allSize ;
+        double procentRating_3 = 50f / allSize ;
+        double procentRating_4 = 75f / allSize ;
+        double procentRating_5 = 100f / allSize ;
 
-        progress += CountRating_1 * procentRating_1;
-        progress += CountRating_2 * procentRating_2;
-        progress += CountRating_3 * procentRating_3;
-        progress += CountRating_4 * procentRating_4;
-        progress += CountRating_5 * procentRating_5;
 
-        ItogProgress = (int) progress;
+        progress_1 += CountRating_1 * procentRating_1;
+        progress_2 += CountRating_2 * procentRating_2;
+        progress_3 += CountRating_3 * procentRating_3;
+        progress_4 += CountRating_4 * procentRating_4;
+        progress_5 += CountRating_5 * procentRating_5;
+
+        allProgress = progress_1 + progress_2 + progress_3 + progress_4 + progress_5;
+
+        ItogProgress = (int) allProgress;
 
         return ItogProgress;
     }
