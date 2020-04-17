@@ -102,7 +102,7 @@ public class Traning extends AppCompatActivity implements View.OnClickListener {
                 currentWord = currentWord.toLowerCase();
                 currentWord = currentWord.trim();
 
-                if(enterWord != "")
+                if(!enterWord.equals(""))
                 {
                     if(!checkShow)
                     {
@@ -149,6 +149,11 @@ public class Traning extends AppCompatActivity implements View.OnClickListener {
 
                     System.out.println(word.toString());
 
+                }
+                else
+                {
+                    etxt_EntryField.setText("");
+                    etxt_EntryField.setHint(word.getRuWord());
                 }
 
                 break;

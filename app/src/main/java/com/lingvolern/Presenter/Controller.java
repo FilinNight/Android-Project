@@ -29,7 +29,6 @@ public class Controller implements IController
         {
             if(word.getNew() == 1)
             {
-                word = this.changeRating(word);
                 word.setNew(0);
                 this.changeWord(word);
             }
@@ -310,6 +309,7 @@ public class Controller implements IController
                 word.setRating(3);
                 return word;
             }
+
             else if(difference >= 3 && difference <= 4)
             {
                 word.setRating(4);
@@ -452,13 +452,13 @@ public class Controller implements IController
 
 
     @Override
-    public  User getUser()
-{
-    User user = new User();
-    user.setLevel(this.getUserLevel());
-    user.setName(this.getUserName());
-    return user;
-}
+    public  User getUser()                              //показать User
+    {
+        User user = new User();
+        user.setLevel(this.getUserLevel());
+        user.setName(this.getUserName());
+        return user;
+    }
 
     @Override
     public  String getUserName()                    //показывает имя текущего пользователя
