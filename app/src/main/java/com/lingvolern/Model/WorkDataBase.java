@@ -31,7 +31,6 @@ public class WorkDataBase implements IWorkDataBase {
 
     }
 
-
     @Override
     public void addWord(Word word) {
         try {
@@ -55,7 +54,6 @@ public class WorkDataBase implements IWorkDataBase {
         mDb.insert("TableUserWords", null, values);
         mDb.close();
     }
-
 
     @Override
     public void addUser(String name)
@@ -101,7 +99,6 @@ public class WorkDataBase implements IWorkDataBase {
         return name;
     }
 
-
     @Override
     public int getUserLevel()
     {
@@ -128,7 +125,6 @@ public class WorkDataBase implements IWorkDataBase {
 
         return 0;
     }
-
 
     @Override
     public void setUserLevel(int level, String name)
@@ -174,7 +170,6 @@ public class WorkDataBase implements IWorkDataBase {
         return null;
     }
 
-
     @Override
     public ArrayList<Word> getAllPublicWords() {
 
@@ -198,7 +193,6 @@ public class WorkDataBase implements IWorkDataBase {
 
         return listWords;
     }
-
 
     @Override
     public ArrayList<Word> getAllUserWords() {
@@ -225,7 +219,6 @@ public class WorkDataBase implements IWorkDataBase {
 
     }
 
-
     @Override
     public ArrayList<Word> getUserWordsLevel(int Level) {
         try {
@@ -250,7 +243,6 @@ public class WorkDataBase implements IWorkDataBase {
 
         return listWords;
     }
-
 
     @Override
     public ArrayList<Word> getPublicWordsLevel(int Level) {
@@ -277,7 +269,6 @@ public class WorkDataBase implements IWorkDataBase {
         return listWords;
     }
 
-
     @Override
     public int getCountPublicWords() {
 
@@ -296,7 +287,6 @@ public class WorkDataBase implements IWorkDataBase {
         return count;
     }
 
-
     @Override
     public int getCountUserWords() {
         try {
@@ -313,7 +303,6 @@ public class WorkDataBase implements IWorkDataBase {
         mDb.close();
         return count;
     }
-
 
     @Override
     public int getCountWordsLearned()
@@ -347,7 +336,6 @@ public class WorkDataBase implements IWorkDataBase {
         return count;
     }
 
-
     @Override
     public int getCountUserName()
     {
@@ -365,7 +353,6 @@ public class WorkDataBase implements IWorkDataBase {
         mDb.close();
         return count;
     }
-
 
     @Override
     public void changeWord(Word word)
@@ -389,7 +376,6 @@ public class WorkDataBase implements IWorkDataBase {
         mDb.close();
     }
 
-
     @Override
     public void deleteWord(Word word)
     {
@@ -404,7 +390,6 @@ public class WorkDataBase implements IWorkDataBase {
 
 
     }
-
 
     @Override
     public void deleteAll() {

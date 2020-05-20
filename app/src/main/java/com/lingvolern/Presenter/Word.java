@@ -87,13 +87,6 @@ public class Word
         Rating = rating;
     }
 
-
-
-
-
-
-
-
     public Word(String EnWord, String RuWord, String Transcription, int New, int Level, int CorrectAttempty, int WrongAttempty, int Rating)
     {
         this.EnWord = EnWord;
@@ -105,33 +98,6 @@ public class Word
         this.WrongAttempty = WrongAttempty;
         this.Rating = Rating;
     }
-
-//    public Word(String EnWord, String RuWord, String Transcription)
-//    {
-//        this.EnWord = EnWord;
-//        this.RuWord = RuWord;
-//        this.Transcription = Transcription;
-//        this.New = 1;
-//        this.Level = 1;
-//        this.CorrectAttempty = 0;
-//        this.WrongAttempty = 0;
-//        this.Rating = 1;
-//    }
-
-
-
-//    public Word()
-//    {
-//        this.EnWord = "None";
-//        this.RuWord = "None";
-//        this.Transcription = "None";
-//        this.New = 1;
-//        this.Level = 1;
-//        this.CorrectAttempty = 0;
-//        this.WrongAttempty = 0;
-//        this.Rating = 1;
-//    }
-
 
     @Override
     public String toString() {

@@ -37,7 +37,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         this.getReadableDatabase();
     }
 
-
     public void updateDataBase() throws IOException {
         if (mNeedUpdate) {
             File dbFile = new File(DB_PATH + DB_NAME);
@@ -49,7 +48,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             mNeedUpdate = false;
         }
     }
-
 
     private boolean checkDataBase() {
         File dbFile = new File(DB_PATH + DB_NAME);

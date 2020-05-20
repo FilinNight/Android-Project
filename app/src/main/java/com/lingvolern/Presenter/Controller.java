@@ -1,75 +1,60 @@
 package com.lingvolern.Presenter;
 
 import android.content.Context;
+
 import com.lingvolern.Model.WorkDataBase;
 import com.lingvolern.Presenter.Interface.IController;
+
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Controller implements IController
-{
+public class Controller implements IController {
 
     WorkDataBase workDataBase;
     Context context;
 
-    public Controller(Context context)
-    {
+    public Controller(Context context) {
         workDataBase = new WorkDataBase(context);
         this.context = context;
 
     }
-
 
     @Override
     public void wordProcessing(Word word, int key)     //взависимости от ответа пользователя изменяет и перезаписывает слово в TableUserWords
     {
         //key = 0 (неправильный ответ), key = 1 (правильный ответ)
 
-        if(key == 0)
-        {
-            if(word.getNew() == 1)
-            {
+        if (key == 0) {
+            if (word.getNew() == 1) {
                 word.setNew(0);
                 this.changeWord(word);
-            }
-            else
-            {
-                if(word.getWrongAttempty() >= 5)
-                {
+            } else {
+                if (word.getWrongAttempty() >= 5) {
                     word.setWrongAttempty(5);
                     word = this.changeRating(word);
                     this.changeWord(word);
-                }
-                else
-                {
+                } else {
                     int wrongAttempty = word.getWrongAttempty() + 1;
                     word.setWrongAttempty(wrongAttempty);
                     word = this.changeRating(word);
                     this.changeWord(word);
                 }
             }
-        }
-        else if (key == 1)
-        {
-            if(word.getNew() == 1)
-            {
+        } else if (key == 1) {
+            if (word.getNew() == 1) {
                 word.setNew(0);
                 word.setCorrectAttempty(4);
                 word = this.changeRating(word);
                 this.changeWord(word);
 
-            }
-            else
-            {
+            } else {
                 int correctAttempty = word.getCorrectAttempty() + 1;
                 word.setCorrectAttempty(correctAttempty);
                 word = this.changeRating(word);
                 this.changeWord(word);
 
             }
-        }
-        else
-        {
+        } else {
             System.out.println("(wordProcessing) чет пошло не так.");
         }
 
@@ -87,30 +72,18 @@ public class Controller implements IController
         ArrayList<Word> listWordsRating5 = new ArrayList<Word>();
 
 
-        for(Word wd : listWords)
-        {
-            if(wd.getRating() == 1 || wd.getRating() == 0)
-            {
+        for (Word wd : listWords) {
+            if (wd.getRating() == 1 || wd.getRating() == 0) {
                 listWordsRating1.add(wd);
-            }
-            else if(wd.getRating() == 2)
-            {
+            } else if (wd.getRating() == 2) {
                 listWordsRating2.add(wd);
-            }
-            else if(wd.getRating() == 3)
-            {
+            } else if (wd.getRating() == 3) {
                 listWordsRating3.add(wd);
-            }
-            else if(wd.getRating() == 4)
-            {
+            } else if (wd.getRating() == 4) {
                 listWordsRating4.add(wd);
-            }
-            else if(wd.getRating() == 5)
-            {
+            } else if (wd.getRating() == 5) {
                 listWordsRating5.add(wd);
-            }
-            else
-            {
+            } else {
                 System.out.println("Сортировка по рейтингу дала сбой.");
             }
         }
@@ -127,161 +100,101 @@ public class Controller implements IController
         int pracentRandom = random.nextInt(100);
         System.out.println(pracentRandom);
 
-        if(pracentRandom <= 20)
-        {
-            if(listWordsRating1.size() != 0)
-            {
+        if (pracentRandom <= 20) {
+            if (listWordsRating1.size() != 0) {
                 int rand = random.nextInt(listWordsRating1.size());
                 return listWordsRating1.get(rand);
-            }
-            else if (listWordsRating2.size() != 0)
-            {
+            } else if (listWordsRating2.size() != 0) {
                 int rand = random.nextInt(listWordsRating2.size());
                 return listWordsRating2.get(rand);
-            }
-            else if (listWordsRating3.size() != 0)
-            {
+            } else if (listWordsRating3.size() != 0) {
                 int rand = random.nextInt(listWordsRating3.size());
                 return listWordsRating3.get(rand);
-            }
-            else if (listWordsRating4.size() != 0)
-            {
+            } else if (listWordsRating4.size() != 0) {
                 int rand = random.nextInt(listWordsRating4.size());
                 return listWordsRating4.get(rand);
-            }
-            else if (listWordsRating5.size() != 0)
-            {
+            } else if (listWordsRating5.size() != 0) {
                 int rand = random.nextInt(listWordsRating5.size());
                 return listWordsRating5.get(rand);
             }
 
-        }
-        else if (pracentRandom > 20 && pracentRandom <= 60)
-        {
-            if (listWordsRating2.size() != 0)
-            {
+        } else if (pracentRandom > 20 && pracentRandom <= 60) {
+            if (listWordsRating2.size() != 0) {
                 int rand = random.nextInt(listWordsRating2.size());
                 return listWordsRating2.get(rand);
-            }
-            else if (listWordsRating1.size() != 0)
-            {
+            } else if (listWordsRating1.size() != 0) {
                 int rand = random.nextInt(listWordsRating1.size());
                 return listWordsRating1.get(rand);
-            }
-            else if (listWordsRating3.size() != 0)
-            {
+            } else if (listWordsRating3.size() != 0) {
                 int rand = random.nextInt(listWordsRating3.size());
                 return listWordsRating3.get(rand);
-            }
-            else if (listWordsRating4.size() != 0)
-            {
+            } else if (listWordsRating4.size() != 0) {
                 int rand = random.nextInt(listWordsRating4.size());
                 return listWordsRating4.get(rand);
-            }
-            else if (listWordsRating5.size() != 0)
-            {
+            } else if (listWordsRating5.size() != 0) {
                 int rand = random.nextInt(listWordsRating5.size());
                 return listWordsRating5.get(rand);
             }
 
-        }
-        else if (pracentRandom > 60 && pracentRandom <= 85)
-        {
-            if (listWordsRating3.size() != 0)
-            {
+        } else if (pracentRandom > 60 && pracentRandom <= 85) {
+            if (listWordsRating3.size() != 0) {
                 int rand = random.nextInt(listWordsRating3.size());
                 return listWordsRating3.get(rand);
-            }
-            else if (listWordsRating2.size() != 0)
-            {
+            } else if (listWordsRating2.size() != 0) {
                 int rand = random.nextInt(listWordsRating2.size());
                 return listWordsRating2.get(rand);
-            }
-            else if (listWordsRating1.size() != 0)
-            {
+            } else if (listWordsRating1.size() != 0) {
                 int rand = random.nextInt(listWordsRating1.size());
                 return listWordsRating1.get(rand);
-            }
-            else if (listWordsRating4.size() != 0)
-            {
+            } else if (listWordsRating4.size() != 0) {
                 int rand = random.nextInt(listWordsRating4.size());
                 return listWordsRating4.get(rand);
-            }
-            else if (listWordsRating5.size() != 0)
-            {
+            } else if (listWordsRating5.size() != 0) {
                 int rand = random.nextInt(listWordsRating5.size());
                 return listWordsRating5.get(rand);
             }
 
-        }
-
-        else if (pracentRandom > 85 && pracentRandom <= 95)
-        {
-            if (listWordsRating4.size() != 0)
-            {
+        } else if (pracentRandom > 85 && pracentRandom <= 95) {
+            if (listWordsRating4.size() != 0) {
                 int rand = random.nextInt(listWordsRating4.size());
                 return listWordsRating4.get(rand);
-            }
-
-            else if (listWordsRating3.size() != 0)
-            {
+            } else if (listWordsRating3.size() != 0) {
                 int rand = random.nextInt(listWordsRating3.size());
                 return listWordsRating3.get(rand);
-            }
-            else if (listWordsRating2.size() != 0)
-            {
+            } else if (listWordsRating2.size() != 0) {
                 int rand = random.nextInt(listWordsRating2.size());
                 return listWordsRating2.get(rand);
-            }
-            else if (listWordsRating1.size() != 0)
-            {
+            } else if (listWordsRating1.size() != 0) {
                 int rand = random.nextInt(listWordsRating1.size());
                 return listWordsRating1.get(rand);
-            }
-            else if (listWordsRating5.size() != 0)
-            {
+            } else if (listWordsRating5.size() != 0) {
                 int rand = random.nextInt(listWordsRating5.size());
                 return listWordsRating5.get(rand);
             }
 
-        }
-
-        else if (pracentRandom > 95 && pracentRandom <= 100)
-        {
-            if (listWordsRating5.size() != 0)
-            {
+        } else if (pracentRandom > 95 && pracentRandom <= 100) {
+            if (listWordsRating5.size() != 0) {
                 int rand = random.nextInt(listWordsRating5.size());
                 return listWordsRating5.get(rand);
-            }
-            else if (listWordsRating4.size() != 0)
-            {
+            } else if (listWordsRating4.size() != 0) {
                 int rand = random.nextInt(listWordsRating4.size());
                 return listWordsRating4.get(rand);
-            }
-            else if (listWordsRating3.size() != 0)
-            {
+            } else if (listWordsRating3.size() != 0) {
                 int rand = random.nextInt(listWordsRating3.size());
                 return listWordsRating3.get(rand);
-            }
-            else if (listWordsRating2.size() != 0)
-            {
+            } else if (listWordsRating2.size() != 0) {
                 int rand = random.nextInt(listWordsRating2.size());
                 return listWordsRating2.get(rand);
-            }
-            else if (listWordsRating1.size() != 0)
-            {
+            } else if (listWordsRating1.size() != 0) {
                 int rand = random.nextInt(listWordsRating1.size());
                 return listWordsRating1.get(rand);
             }
 
-        }
-        else
-        {
+        } else {
             System.out.println("Улетел и попал на NULL");
         }
         return null;
     }
-
 
     @Override
     public Word changeRating(Word word)     //изменить рейтинг слова
@@ -292,61 +205,43 @@ public class Controller implements IController
 
         int difference = correctAttempty - wrongAttempty;
 
-        if(New == 0)
-        {
-            if(difference <= -5)
-            {
+        if (New == 0) {
+            if (difference <= -5) {
                 word.setRating(1);
                 return word;
-            }
-            else if(difference > -5 && difference <= -3)
-            {
+            } else if (difference > -5 && difference <= -3) {
                 word.setRating(2);
                 return word;
-            }
-            else if(difference >= -2 && difference <= 2)
-            {
+            } else if (difference >= -2 && difference <= 2) {
                 word.setRating(3);
                 return word;
-            }
-
-            else if(difference >= 3 && difference <= 4)
-            {
+            } else if (difference >= 3 && difference <= 4) {
                 word.setRating(4);
                 return word;
-            }
-            else if(difference >= 5)
-            {
+            } else if (difference >= 5) {
                 word.setRating(5);
                 return word;
-            }
-            else
-            {
+            } else {
                 System.out.println("(changeRating) хмм, а должно вроде работать...");
                 return word;
             }
 
-        }
-        else
-        {
+        } else {
             word.setNew(0);
             word.setRating(4);
             return word;
         }
     }
 
-
     @Override
     public void addWordsByLevel(int Level)         //Добавить все слова указанного уровня
     {
         ArrayList<Word> listWords = workDataBase.getPublicWordsLevel(Level);
 
-        for(Word wd : listWords)
-        {
+        for (Word wd : listWords) {
             workDataBase.addWord(wd);
         }
     }
-
 
     @Override
     public int progress(int level)                  //прогресс прохождения уровня
@@ -365,7 +260,6 @@ public class Controller implements IController
         double progress_5 = 0;
 
 
-
         int ItogProgress = 0;
         double allProgress = 0;
         int allSize = listWords.size();
@@ -376,36 +270,26 @@ public class Controller implements IController
 //        }
 
 
-        for(Word wd : listWords)
-        {
-            if(wd.getRating() == 1 && wd.getRating() == 0)
-            {
+        for (Word wd : listWords) {
+            if (wd.getRating() == 1 && wd.getRating() == 0) {
                 CountRating_1++;
-            }
-            else if(wd.getRating() == 2)
-            {
+            } else if (wd.getRating() == 2) {
                 CountRating_2++;
-            }
-            else if(wd.getRating() == 3)
-            {
+            } else if (wd.getRating() == 3) {
                 CountRating_3++;
-            }
-            else if(wd.getRating() == 4)
-            {
+            } else if (wd.getRating() == 4) {
                 CountRating_4++;
-            }
-            else if(wd.getRating() == 5)
-            {
+            } else if (wd.getRating() == 5) {
                 CountRating_5++;
             }
 
         }
 
         double procentRating_1 = 0;
-        double procentRating_2 = 25f / allSize ;
-        double procentRating_3 = 50f / allSize ;
-        double procentRating_4 = 75f / allSize ;
-        double procentRating_5 = 100f / allSize ;
+        double procentRating_2 = 25f / allSize;
+        double procentRating_3 = 50f / allSize;
+        double procentRating_4 = 75f / allSize;
+        double procentRating_5 = 100f / allSize;
 
 
         progress_1 += CountRating_1 * procentRating_1;
@@ -421,14 +305,12 @@ public class Controller implements IController
         return ItogProgress;
     }
 
-
     @Override
     public void addUser(String name)               //добавить нового пользователя
     {
 
         workDataBase.addUser(name);
     }
-
 
     @Override
     public ArrayList<Word> setListLearnedWords()       //Список выученных слов
@@ -438,10 +320,8 @@ public class Controller implements IController
 
         listWordsUser = workDataBase.getAllUserWords();
 
-        for(Word wd : listWordsUser)
-        {
-            if(wd.getRating() >= 1)
-            {
+        for (Word wd : listWordsUser) {
+            if (wd.getRating() >= 1) {
                 listWords.add(wd);
             }
         }
@@ -450,9 +330,8 @@ public class Controller implements IController
         return listWords;
     }
 
-
     @Override
-    public  User getUser()                              //показать User
+    public User getUser()                              //показать User
     {
         User user = new User();
         user.setLevel(this.getUserLevel());
@@ -461,18 +340,16 @@ public class Controller implements IController
     }
 
     @Override
-    public  String getUserName()                    //показывает имя текущего пользователя
+    public String getUserName()                    //показывает имя текущего пользователя
     {
         return workDataBase.getUserName();
     }
-
 
     @Override
     public int getUserLevel()                       //показывает уровень пользователя
     {
         return workDataBase.getUserLevel();
     }
-
 
     @Override
     public void setUserLevel(int level)             //изменяет уровень пользователя
@@ -492,7 +369,6 @@ public class Controller implements IController
         return listWords;
     }
 
-
     @Override
     public ArrayList<Word> getAllWords()                //показывает все слова
     {
@@ -502,18 +378,15 @@ public class Controller implements IController
         return listWords;
     }
 
-
     @Override
     public boolean wordComparison(String ruWord, Word word)     //сравнивает слово введеного пользователем с текущим
     {
-        if(ruWord.equals(word.getEnWord()))
-        {
+        if (ruWord.equals(word.getEnWord())) {
             return true;
         }
 
         return false;
     }
-
 
     @Override
     public void changeWord(Word word)               //изменение слова
@@ -521,13 +394,11 @@ public class Controller implements IController
         workDataBase.changeWord(word);
     }
 
-
     @Override
     public int countWords()                         //число слов из UserWords
     {
         return workDataBase.getCountUserWords();
     }
-
 
     @Override
     public int countLearnedWords()                  //число уже выученных слов
@@ -540,25 +411,20 @@ public class Controller implements IController
     {
         int count = workDataBase.getCountUserName();
 
-        if(count == 0)
-        {
+        if (count == 0) {
             System.out.println("User false");
             return false;
-        }
-        else
-        {
+        } else {
             System.out.println("User true");
             return true;
         }
     }
-
 
     @Override
     public void deleteUser()                    //удаляет значения таблиц User, UserWords
     {
         workDataBase.deleteAll();
     }
-
 
 }
 
